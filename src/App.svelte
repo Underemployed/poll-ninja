@@ -1,29 +1,33 @@
 <script>
-  import { handle_promise } from "svelte/internal";
-
-
-let handleClick = () => {
-	color = (color == "black") ? "orange" : "black";
-}
-let handleInput = (e) => {
-	color  = e.target.value; 
-	
-}
-let fname  = "Hoi"
-let lname = "James"
-let color = "black"
-$: c = `${fname} ${lname} - ${color}`
-
-$: {
-	console.log(color)
-}
+let blogs = [
+	{
+		id: 1,
+		title: 'My First Blog',
+		body: 'Lorem ipsum dolor sit amet consectetur',
+		likes: 30
+	},
+	{
+		id: 2,
+		title: 'Opening Party!',
+		body: 'Why do we use it? It is a long established fact',
+		likes: 20
+	},
+	{
+		id: 3,
+		title: 'Dev Meetup',
+		body: 'There are many variations of passages',
+		likes: 15
+	}
+];
 </script>
 
 <main>
-	<h1>{c}</h1>
-	<input type="text" bind:value={fname}>
-	<input type="text" bind:value={lname}>
-	<input type="text" bind:value={color}>
+ {#each blogs as blog}
+  <div>
+	{blog.id}
+	<p>{blog.title}</p>
+  </div>
+ {/each}
 </main>
 
 
