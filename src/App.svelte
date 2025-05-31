@@ -1,23 +1,30 @@
 <script>
   import { handle_promise } from "svelte/internal";
 
-let name  = "Jeff";
-let color = "black";
+
 let handleClick = () => {
 	color = (color == "black") ? "orange" : "black";
 }
 let handleInput = (e) => {
 	color  = e.target.value;
 }
+let fname  = "Hoi"
+let lname = "James"
+let color = "black"
+$: c = `${fname} ${lname} - ${color}`
+
+$: {
+	console.log(color)
+}
 </script>
 
 <main>
-	<h1>Hello {name}!</h1>
-	<p style="color:{color} ">{color} belt.</p>
-	<button on:click = {handleClick}>update belt color</button>
-	<!-- <input type="text" on:input={handleInput} value ={color}> -->
+	<h1>{c}</h1>
+	<input type="text" bind:value={fname}>
+	<input type="text" bind:value={lname}>
 	<input type="text" bind:value={color}>
 </main>
+
 
 <style>
 	main {
