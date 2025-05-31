@@ -6,7 +6,8 @@ let handleClick = () => {
 	color = (color == "black") ? "orange" : "black";
 }
 let handleInput = (e) => {
-	color  = e.target.value;
+	color  = e.target.value; 
+	
 }
 let fname  = "Hoi"
 let lname = "James"
