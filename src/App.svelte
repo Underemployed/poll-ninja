@@ -19,14 +19,17 @@ let blogs = [
 		likes: 15
 	}
 ];
+// blogs = []
 </script>
 
 <main>
- {#each blogs as blog}
+ {#each blogs as blog (blog.id)}
   <div>
 	{blog.id}
 	<p>{blog.title}</p>
   </div>
+  {:else}
+  	<p>no item to show</p>
  {/each}
 </main>
 
