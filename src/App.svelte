@@ -1,4 +1,6 @@
 <script>
+  import { handle_promise } from "svelte/internal";
+
 let blogs = [
 	{
 		id: 1,
@@ -19,7 +21,12 @@ let blogs = [
 		likes: 15
 	}
 ];
-// blogs = []
+
+const deleteBlog = (id) => {
+	console.log(id)
+	blogs = blogs.filter((blog) => blog.id !== id)
+}
+
 </script>
 
 <main>
@@ -27,6 +34,8 @@ let blogs = [
   <div>
 	{blog.id}
 	<p>{blog.title}</p>
+	<button on:click={() => {deleteBlog(blog.id)}}>delete blog</button>
+
   </div>
   {:else}
   	<p>no item to show</p>
